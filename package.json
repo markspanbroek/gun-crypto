@@ -6,8 +6,7 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
-    "gun": "^0.2020.401",
-    "tweetnacl": "^1.0.3"
+    "gun": "^0.2020.401"
   },
   "devDependencies": {
     "jest": "^25.4.0"
