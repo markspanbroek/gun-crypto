@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "jest --forceExit"
+    "test": "jest --silent --forceExit"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
