@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "gun": "^0.2020.401",
+    "tweetnacl": "^1.0.3"
+  }
+}
