@@ -1,12 +1,13 @@
 import http from 'http'
 import Gun from 'gun'
 
-let server
-let gun
+let server, peer1, peer2
 
 beforeEach(() => {
   server = http.createServer().listen(9876)
-  gun = Gun({web: server, radisk: false})
+  Gun({web: server, radisk: false})
+  peer1 = Gun('http://localhost:9876/gun')
+  peer2 = Gun('http://localhost:9876/gun')
 })
 
 afterEach(async () => {
@@ -14,9 +15,6 @@ afterEach(async () => {
 })
 
 it('communicates', done => {
-  const peer1 = Gun('http://localhost:9876/gun')
-  const peer2 = Gun('http://localhost:9876/gun')
-
   peer1.get('example').put({ message: 'hello'})
   peer2.get('example').get('message').once(message => {
     expect(message).toEqual('hello')
