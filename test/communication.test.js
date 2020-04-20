@@ -31,3 +31,14 @@ it('encrypts', async () => {
   const decrypted = await SEA.decrypt(encrypted, key2)
   expect(decrypted).toBe('hello')
 })
+
+it('exchanges encrypted messages', async done => {
+  const key1 = await SEA.secret(user2.epub, user1)
+  peer1.get('example').put({ message: await SEA.encrypt('hello', key1) })
+
+  const key2 = await SEA.secret(user1.epub, user2)
+  peer2.get('example').get('message').once(async encrypted => {
+    expect(await SEA.decrypt(encrypted, key2)).toBe('hello')
+    done()
+  })
+})
