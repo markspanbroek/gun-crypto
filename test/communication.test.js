@@ -6,7 +6,7 @@ let gun
 
 beforeEach(() => {
   server = http.createServer().listen(9876)
-  gun = Gun({web: server})
+  gun = Gun({web: server, radisk: false})
 })
 
 afterEach(async () => {
